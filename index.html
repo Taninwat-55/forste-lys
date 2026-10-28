@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Første Lys · Café on the quay, Nordhavn</title>
+<meta name="description" content="A café on the quay in Nordhavn, open 05:30 to 13:00. Filter coffee, rye and cardamom buns for the people who are up before the city.">
+<meta name="theme-color" content="#151b26">
+<link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" fetchpriority="high"
+  imagesrcset="assets/img/harbour-640.avif 640w, assets/img/harbour-1280.avif 1280w, assets/img/harbour-1920.avif 1920w"
+  imagesizes="(orientation: portrait) 160vh, 100vw">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="mark" href="./" aria-current="page">Første <i>Lys</i></a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#day">The day</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="nav-cta" href="#save">Save a bun</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <picture class="hero-photo">
+      <source type="image/avif" srcset="assets/img/harbour-640.avif 640w, assets/img/harbour-1280.avif 1280w, assets/img/harbour-1920.avif 1920w" sizes="(orientation: portrait) 160vh, 100vw">
+      <img src="assets/img/harbour-1280.webp" srcset="assets/img/harbour-640.webp 640w, assets/img/harbour-1280.webp 1280w, assets/img/harbour-1920.webp 1920w" sizes="(orientation: portrait) 160vh, 100vw" width="2400" height="1600" alt="The quay in Nordhavn under a pale sky, puddles on the concrete and the old power station across the water." fetchpriority="high">
+    </picture>
+    <div class="hero-copy">
+      <p class="hero-time" aria-hidden="true"><span>0</span><span>5</span><span class="colon">:</span><span>3</span><span>0</span></p>
+      <h1 id="hero-title">Open before the city is.</h1>
+      <p class="hero-lede">A café on the quay in Nordhavn. Filter coffee, warm rye and cardamom buns from 05:30, for the night shift going home and the early shift going in. We close at 13:00, or when the buns run out.</p>
+      <p class="hero-actions">
+        <a class="btn" href="#save">Save a bun for tomorrow</a>
+        <a class="link" href="#day">Walk through the day</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="day" id="day" aria-labelledby="day-title">
+    <div class="day-stage">
+      <header class="day-head">
+        <h2 id="day-title">The day, from first light</h2>
+        <p class="day-clock" aria-hidden="true"><span>0</span><span>5</span><span class="colon">:</span><span>3</span><span>0</span></p>
+      </header>
+
+      <div class="day-light" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+      <ol class="hours">
+        <li class="hour" data-min="330">
+          <figure><picture><source type="image/avif" srcset="assets/img/cup-640.avif 640w, assets/img/cup-1280.avif 1280w" sizes="(min-width: 900px) 34vw, 100vw"><img src="assets/img/cup-640.webp" srcset="assets/img/cup-640.webp 640w, assets/img/cup-1280.webp 1280w" sizes="(min-width: 900px) 34vw, 100vw" width="2400" height="3600" alt="Two hands wrapped around a paper cup of coffee in the dark." loading="eager" fetchpriority="low"></picture></figure>
+          <div class="hour-text">
+            <p class="hour-time"><time>05:30</time></p>
+            <h3>Doors open.</h3>
+            <p>The quay is still dark. First in are nurses off the night shift and crane drivers on their way to the early one. The filter is already in the big pot, and the cups are warm.</p>
+          </div>
+        </li>
+        <li class="hour" data-min="360">
+          <figure><picture><source type="image/avif" srcset="assets/img/pour-640.avif 640w, assets/img/pour-1280.avif 1280w" sizes="(min-width: 900px) 34vw, 100vw"><img src="assets/img/pour-640.webp" srcset="assets/img/pour-640.webp 640w, assets/img/pour-1280.webp 1280w" sizes="(min-width: 900px) 34vw, 100vw" width="2400" height="3601" alt="Hot water poured into a pleated filter, steam rising in low light." loading="eager" fetchpriority="low"></picture></figure>
+          <div class="hour-text">
+            <p class="hour-time"><time>06:00</time></p>
+            <h3>The second pot.</h3>
+            <p>Filter, made by hand and poured until it’s gone, then made again. No latte art at this hour. Hot coffee in a heavy cup, refills free until seven.</p>
+          </div>
+        </li>
+        <li class="hour" data-min="405">
+          <figure><picture><source type="image/avif" srcset="assets/img/rye-640.avif 640w, assets/img/rye-1280.avif 1280w" sizes="(min-width: 900px) 34vw, 100vw"><img src="assets/img/rye-640.webp" srcset="assets/img/rye-640.webp 640w, assets/img/rye-1280.webp 1280w" sizes="(min-width: 900px) 34vw, 100vw" width="2400" height="3596" alt="Hands holding a loaf of seeded rye torn in two." loading="eager" fetchpriority="low"></picture></figure>
+          <div class="hour-text">
+            <p class="hour-time"><time>06:45</time></p>
+            <h3>Rye, out of the tins.</h3>
+            <p>Baked overnight and sliced while it’s still warm. Cold butter and flaky salt. That’s the whole dish, and it’s enough.</p>
+          </div>
+        </li>
+        <li class="hour" data-min="435">
+          <figure><picture><source type="image/avif" srcset="assets/img/buns-640.avif 640w, assets/img/buns-1280.avif 1280w" sizes="(min-width: 900px) 34vw, 100vw"><img src="assets/img/buns-640.webp" srcset="assets/img/buns-640.webp 640w, assets/img/buns-1280.webp 1280w" sizes="(min-width: 900px) 34vw, 100vw" width="2400" height="3601" alt="Twisted cardamom buns cooling on a dark baking tray." loading="eager" fetchpriority="low"></picture></figure>
+          <div class="hour-text">
+            <p class="hour-time"><time>07:15</time></p>
+            <h3>First tray.</h3>
+            <p>Forty cardamom buns. The smell reaches the bike lane before the tray reaches the counter, and the line starts. There is no second tray.</p>
+          </div>
+        </li>
+        <li class="hour" data-min="570">
+          <figure><picture><source type="image/avif" srcset="assets/img/window-640.avif 640w, assets/img/window-1280.avif 1280w" sizes="(min-width: 900px) 34vw, 100vw"><img src="assets/img/window-640.webp" srcset="assets/img/window-640.webp 640w, assets/img/window-1280.webp 1280w" sizes="(min-width: 900px) 34vw, 100vw" width="2400" height="3600" alt="Sunlight falling through a window onto a wooden table with a small vase of flowers." loading="eager" fetchpriority="low"></picture></figure>
+          <div class="hour-text">
+            <p class="hour-time"><time>09:30</time></p>
+            <h3>Sun on table four.</h3>
+            <p>The light comes over the water and finds the window. The runners have gone home. New parents arrive, pram first, and stay for a second cup.</p>
+          </div>
+        </li>
+        <li class="hour" data-min="690">
+          <figure><picture><source type="image/avif" srcset="assets/img/soup-640.avif 640w, assets/img/soup-1280.avif 1280w" sizes="(min-width: 900px) 34vw, 100vw"><img src="assets/img/soup-640.webp" srcset="assets/img/soup-640.webp 640w, assets/img/soup-1280.webp 1280w" sizes="(min-width: 900px) 34vw, 100vw" width="2400" height="3000" alt="A bowl of orange pumpkin soup next to slices of dark rye bread." loading="eager" fetchpriority="low"></picture></figure>
+          <div class="hour-text">
+            <p class="hour-time"><time>11:30</time></p>
+            <h3>One soup.</h3>
+            <p>One pot, with the last of the rye on the side. Today it’s pumpkin. The harbour crews come back for it, and the pot is empty by one.</p>
+          </div>
+        </li>
+        <li class="hour hour-end" data-min="780">
+          <figure><picture><source type="image/avif" srcset="assets/img/chair-640.avif 640w, assets/img/chair-1280.avif 1280w" sizes="(min-width: 900px) 34vw, 100vw"><img src="assets/img/chair-640.webp" srcset="assets/img/chair-640.webp 640w, assets/img/chair-1280.webp 1280w" sizes="(min-width: 900px) 34vw, 100vw" width="2400" height="3600" alt="An empty espresso cup on a wooden table in front of an empty chair." loading="eager" fetchpriority="low"></picture></figure>
+          <div class="hour-text">
+            <p class="hour-time"><time>13:00</time></p>
+            <h3>Back at <span class="nowrap">05:30.</span></h3>
+            <p>Chairs up, buns gone, pot rinsed. The city is just getting going. We’re done for the day.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="board" aria-labelledby="board-title">
+        <h3 id="board-title">On the counter</h3>
+        <ul>
+          <li data-from="330" data-to="780"><span class="dish">Filter, the big pot <i lang="da">Filterkaffe</i></span><span class="when">05:30 to close</span></li>
+          <li data-from="330" data-to="570"><span class="dish">Oat porridge, brown butter <i lang="da">Havregrød</i></span><span class="when">05:30 to 09:30</span></li>
+          <li data-from="405" data-to="735"><span class="dish">Warm rye, butter, salt <i lang="da">Rugbrød</i></span><span class="when">From 06:45 until gone</span></li>
+          <li data-from="435" data-to="628"><span class="dish">Cardamom bun <i lang="da">Kardemommesnurre</i></span><span class="when">From 07:15 until gone</span></li>
+          <li data-from="690" data-to="772"><span class="dish">Soup, with rye <i lang="da">Dagens suppe</i></span><span class="when">From 11:30 until gone</span></li>
+        </ul>
+      </div>
+
+      <div class="rail" aria-hidden="true"><span>05:30</span><b><i></i></b><span>13:00</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot-mark">Første <i>Lys</i></p>
+  <p>Første Lys is a design concept. The café, the people and the menu are invented.</p>
+  <p class="credits">Photos from Unsplash: Jesper Giortz-Behrens (Nordhavn), Kaylee Stoll (cup), Marie G. (filter), Diego Arenas de Rodrigo (rye), Markus Spiske (buns), David Moorhouse (window), shibani Mishra (soup), Philipp Hubert (chair).</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
