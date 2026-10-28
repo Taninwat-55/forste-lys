@@ -88,3 +88,88 @@
   tl.eventCallback("onUpdate", tick);
   tick();
 })();
+
+// Save a bun. A working form that sends nothing: it knows the café is closed on
+// Mondays, that Saturday's tray is always spoken for, and how many buns are left
+// on any other morning (made up, but the same date always gives the same answer).
+(() => {
+  const form = document.querySelector(".save-form");
+  if (!form) return;
+  const TRAY = 40, PRICE = 38;
+  const day = form.querySelector("#f-day");
+  const left = form.querySelector("#f-left");
+  const name = form.querySelector("#f-name");
+  const nameErr = form.querySelector("#f-name-err");
+  const formErr = form.querySelector("#f-error");
+  const total = form.querySelector(".total");
+  const saved = document.querySelector("#f-saved");
+  const kr = n => new Intl.NumberFormat("en-GB").format(n) + " kr.";
+  const label = d => d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
+  const weekday = d => d.toLocaleDateString("en-GB", { weekday: "long" });
+
+  const mornings = [];
+  for (let d = new Date(), i = 0; mornings.length < 6 && i < 14; i++) {
+    d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
+    if (d.getDay() !== 1) mornings.push(d);
+  }
+  const iso = d => `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  const leftOn = d => {
+    if (d.getDay() === 6) return 0;
+    let h = 7;
+    for (const c of iso(d)) h = (h * 31 + c.charCodeAt(0)) % 9973;
+    return 3 + (h % 26);
+  };
+  day.innerHTML = mornings.map((d, i) => `<option value="${i}">${i ? label(d) : "Tomorrow, " + weekday(d)}</option>`).join("");
+
+  const qty = () => +form.querySelector('[name="qty"]:checked').value;
+  const morning = () => mornings[+day.value];
+  const update = () => {
+    const n = leftOn(morning());
+    left.textContent = n ? `${n} of ${TRAY} still free to save` : `${weekday(morning())}’s tray is already fully saved`;
+    total.textContent = `${qty()} ${qty() === 1 ? "bun" : "buns"}, ${kr(qty() * PRICE)} at pickup`;
+    day.removeAttribute("aria-invalid");
+    formErr.textContent = "";
+  };
+  form.addEventListener("change", update);
+  name.addEventListener("input", () => { name.removeAttribute("aria-invalid"); nameErr.textContent = ""; });
+  update();
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const who = name.value.trim();
+    const n = leftOn(morning());
+    const q = qty();
+    let ok = true;
+    if (!who) {
+      ok = false;
+      name.setAttribute("aria-invalid", "true");
+      nameErr.textContent = "Write a name for the bag, so we know whose buns they are.";
+    }
+    if (!n) {
+      ok = false;
+      day.setAttribute("aria-invalid", "true");
+      formErr.textContent = `${weekday(morning())}’s tray is already fully saved. Pick another morning.`;
+    } else if (q > n) {
+      ok = false;
+      day.setAttribute("aria-invalid", "true");
+      formErr.textContent = `Only ${n} ${n === 1 ? "bun is" : "buns are"} left to save for ${weekday(morning())}. Pick ${n} or fewer, or another morning.`;
+    }
+    if (!ok) { (who ? day : name).focus(); return; }
+
+    const time = form.querySelector("#f-time").value;
+    saved.innerHTML = `<h3>Saved, ${who.replace(/[<>&"]/g, "")}.</h3>
+      <p>${q} ${q === 1 ? "bun" : "buns"} in a paper bag with your name on it, ${label(morning())} at ${time}. Pay ${kr(q * PRICE)} when you pick them up. They wait for you until 08:00.</p>
+      <p>Første Lys is a concept, so nothing was sent and no bun is waiting. If it were real, it would be.</p>
+      <button type="button">Save for another morning</button>`;
+    form.hidden = true;
+    saved.hidden = false;
+    saved.focus();
+    saved.querySelector("button").addEventListener("click", () => {
+      saved.hidden = true;
+      form.hidden = false;
+      form.reset();
+      update();
+      name.focus();
+    });
+  });
+})();
